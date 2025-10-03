@@ -1,0 +1,24 @@
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.poster {
+    width: 150px;
+    height: 225px;
+}
+
+.current {
+    color: #0077ff;
+    cursor: default;
+}

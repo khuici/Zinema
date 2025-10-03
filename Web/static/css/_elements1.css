@@ -1,0 +1,61 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+
+    padding: .5em 1em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+main {
+    flex: 1;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    transition: color .15s ease-in-out;
+}
+
+a:hover {
+    color: #0077ff;
+}
+
+address {
+    font-style: normal;
+}
