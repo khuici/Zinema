@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Constants {
     public static final String PROGRAM_VERSION = "v1.0";
 
-    public static final Path SOURCE_FOLDER_ABS_PATH = Paths.get(System.getProperty("user.dir"), "src").toAbsolutePath();
+    public static final Path SOURCE_FOLDER_ABS_PATH = Paths.get(System.getProperty("user.dir"), "Desktop", "src").toAbsolutePath();
     public static final String LOG_FOLDER_ABS_PATH = Paths.get(SOURCE_FOLDER_ABS_PATH.toString(), "logs").toString();
 
     public static final boolean OPEN = true;
@@ -65,8 +65,8 @@ public class Constants {
     public static final int MAX_SHOWS_PER_DAY = MOVIE_MAP.size();
 
     public static final int MAX_TICKETS_PER_MOVIE = 4;
-    public static final int INTERVAL_BETWEEN_SHOWS = 90;
+    public static final int INTERVAL_BETWEEN_SHOWS = 30;
 
-    public static final LocalTime OPENING_TIME = LocalTime.of(11, 00);
+    public static final LocalTime OPENING_TIME = LocalTime.of(10, 00);
     public static final LocalTime CLOSING_TIME = LocalTime.of(00, 00);
 }

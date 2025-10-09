@@ -53,6 +53,8 @@ public class Data {
     }
 
     private static void populateSchedule(Map<String, List<Show>> schedule) {
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
         int index = 1;
 
         logger.info("Starting schedule population.");
@@ -64,12 +66,9 @@ public class Data {
             }
 
             List<Show> showList = new ArrayList<>();
+            int maxShows = generateRandomNumber(Constants.MIN_SHOWS_PER_DAY, Constants.MAX_SHOWS_PER_DAY);
 
-            // FIXME: Time not updating correctly.
-            LocalTime newTime = OPENING_TIME.plusMinutes(INTERVAL_BETWEEN_SHOWS);
-            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-
-            int maxShows = generateRandomNumber(MIN_SHOWS_PER_DAY, MAX_SHOWS_PER_DAY);
+            LocalTime newTime = Constants.OPENING_TIME;
 
             for (int showNum = 1; showNum <= maxShows; ++showNum) {
                 List<Movie> movieList = new ArrayList<>(MOVIES.values());
@@ -96,6 +95,8 @@ public class Data {
                 String showId = String.format("D%dS%s", index, leadingZero);
 
                 showList.add(new Show(showId, newTime.format(timeFormatter), randomMovie));
+
+                newTime = newTime.plusMinutes(Constants.INTERVAL_BETWEEN_SHOWS);
 
                 logger.info(String.format("Added show \"%s\" to the list of shows.", showId));
             }
