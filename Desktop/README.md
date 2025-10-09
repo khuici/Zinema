@@ -1,4 +1,6 @@
-# Galderak
+# Desktop Aplikazioa
+
+###### *(Kerman)*
 
 Ez dut ia inoiz Java-n programatu, baina ~5 urteko esperientzia dut Python
 erabiltzen eta ondo ezagutzen ditut OOP terminologia eta egitura.
@@ -9,7 +11,7 @@ erabiltzen eta ondo ezagutzen ditut OOP terminologia eta egitura.
 Hona hemen proiektu hau programatzeko erabili ditudan baliabideen (ia) zerrenda
 osoa.
 
-### Stack Overflow:
+### Stack Overflow galderak:
 
 - https://stackoverflow.com/questions/37628
 - https://stackoverflow.com/questions/155436
@@ -36,7 +38,7 @@ osoa.
 - https://stackoverflow.com/questions/36782231
 - https://stackoverflow.com/questions/53715052
 
-### Java Gidak:
+### Java gidak:
 
 - https://www.baeldung.com/java-assert
 - https://www.baeldung.com/java-varargs
@@ -46,6 +48,6 @@ osoa.
 - https://www.baeldung.com/java-suppresswarnings
 - https://www.baeldung.com/java-runnable-callable
 
-### Beste Baliabide Batzuk:
+### Beste baldintza batzuk:
 
 - https://projectlombok.org/

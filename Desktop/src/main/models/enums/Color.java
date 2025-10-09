@@ -23,7 +23,9 @@ public enum Color {
     CYAN_BOLD("\u001B[1;36m"),
 
     BLACK_BOLD("\u001B[1;30m"),
-    WHITE_BOLD("\u001B[1;37m");
+    WHITE_BOLD("\u001B[1;37m"),
+
+    _RESET("\u001B[0m");
 
     @Getter public final String unicodeValue;
 
@@ -32,10 +34,14 @@ public enum Color {
     }
 
     public static String paint(Color color, String content) {
-        if (color == null || content == null) {
+        if (color == null) {
             return content;
         }
 
-        return color.getUnicodeValue() + content + "\u001B[0m";
+        if (content == null) {
+            return null;
+        }
+
+        return color.getUnicodeValue() + content + Color._RESET.getUnicodeValue();
     }
 }
