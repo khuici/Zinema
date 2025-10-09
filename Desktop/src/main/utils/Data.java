@@ -66,9 +66,9 @@ public class Data {
             }
 
             List<Show> showList = new ArrayList<>();
-            int maxShows = generateRandomNumber(Constants.MIN_SHOWS_PER_DAY, Constants.MAX_SHOWS_PER_DAY);
+            int maxShows = generateRandomNumber(MIN_SHOWS_PER_DAY, MAX_SHOWS_PER_DAY);
 
-            LocalTime newTime = Constants.OPENING_TIME;
+            LocalTime newTime = OPENING_TIME;
 
             for (int showNum = 1; showNum <= maxShows; ++showNum) {
                 List<Movie> movieList = new ArrayList<>(MOVIES.values());
@@ -96,7 +96,7 @@ public class Data {
 
                 showList.add(new Show(showId, newTime.format(timeFormatter), randomMovie));
 
-                newTime = newTime.plusMinutes(Constants.INTERVAL_BETWEEN_SHOWS);
+                newTime = newTime.plusMinutes(INTERVAL_BETWEEN_SHOWS);
 
                 logger.info(String.format("Added show \"%s\" to the list of shows.", showId));
             }
