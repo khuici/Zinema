@@ -2,14 +2,14 @@ package main.models;
 
 import lombok.Getter;
 
-import main.utils.Constants;
+import static main.utils.Constants.*;
 
 public class Day {
     @Getter private String name;
     @Getter private boolean open;
 
     public Day(String name, boolean open) {
-        if (!Constants.WEEKDAY_MAP.containsKey(name)) {
+        if (!WEEKDAY_MAP.containsKey(name)) {
             throw new IllegalArgumentException("Invalid day name: " + name);
         }
 
@@ -18,11 +18,11 @@ public class Day {
     }
 
     public static String getDayNameFromNumber(int dayNumber) {
-        if (dayNumber < 1 || dayNumber > Constants.WEEKDAY_MAP.size()) {
+        if (dayNumber < 1 || dayNumber > WEEKDAY_MAP.size()) {
             return null;
         }
 
-        return Constants.WEEKDAY_MAP.keySet()
+        return WEEKDAY_MAP.keySet()
             .stream()
             .skip(dayNumber - 1)
             .findFirst()

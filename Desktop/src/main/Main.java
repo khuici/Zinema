@@ -6,17 +6,18 @@ import java.util.logging.Logger;
 
 import main.cli.Console;
 import main.cli.Logging;
-import main.utils.Constants;
 import main.utils.Data;
 
+import static main.utils.Constants.*;
+
 public class Main {
-    private static final Logger logger = new Logging(Main.class, Constants.LOG_FOLDER_ABS_PATH).getLogger();
+    private static final Logger logger = new Logging(Main.class, LOG_FOLDER_ABS_PATH).getLogger();
 
     private static void initialChecks() throws UnsupportedEncodingException {
         logger.info("Running initial background checks.");
 
-        if (Constants.MIN_SHOWS_PER_DAY > Constants.MAX_SHOWS_PER_DAY ||
-            Constants.MAX_SHOWS_PER_DAY > Constants.MOVIE_MAP.size()) {
+        if (MIN_SHOWS_PER_DAY > MAX_SHOWS_PER_DAY ||
+            MAX_SHOWS_PER_DAY > MOVIE_MAP.size()) {
 
             IllegalArgumentException e = new IllegalArgumentException("Invalid MIN/MAX show values.");
             logger.log(Level.SEVERE, e.getMessage(), e);

@@ -12,6 +12,7 @@ osoa.
 ### Stack Overflow:
 
 - https://stackoverflow.com/questions/37628
+- https://stackoverflow.com/questions/155436
 - https://stackoverflow.com/questions/215497
 - https://stackoverflow.com/questions/228477
 - https://stackoverflow.com/questions/275711
@@ -27,6 +28,7 @@ osoa.
 - https://stackoverflow.com/questions/6271417
 - https://stackoverflow.com/questions/10303625
 - https://stackoverflow.com/questions/10623682
+- https://stackoverflow.com/questions/18825640
 - https://stackoverflow.com/questions/20389890
 - https://stackoverflow.com/questions/22701751
 - https://stackoverflow.com/questions/29878237

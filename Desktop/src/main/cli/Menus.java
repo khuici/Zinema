@@ -9,11 +9,12 @@ import java.util.logging.Logger;
 import main.models.Day;
 import main.models.Show;
 import main.models.enums.Color;
-import main.utils.Constants;
 import main.utils.Data;
 
+import static main.utils.Constants.*;
+
 public class Menus {
-    private static final Logger logger = new Logging(Menus.class, Constants.LOG_FOLDER_ABS_PATH).getLogger();
+    private static final Logger logger = new Logging(Menus.class, LOG_FOLDER_ABS_PATH).getLogger();
 
     protected static enum MenuState {
         MAIN_MENU,
@@ -39,7 +40,7 @@ public class Menus {
     private static void printHeader(Color color, String header) {
         Console.clear();
 
-        String title = String.format("[Zinema Usurbil - Zinemapp %s]", Constants.PROGRAM_VERSION);
+        String title = String.format("[Zinema Usurbil - Zinemapp %s]", PROGRAM_VERSION);
 
         System.out.println(Color.paint(Color.YELLOW_BOLD, title));
         System.out.println();
@@ -156,7 +157,7 @@ public class Menus {
 
         List<String> options = new ArrayList<>();
 
-        for (Map.Entry<String, Boolean> weekday : Constants.WEEKDAY_MAP.entrySet()) {
+        for (Map.Entry<String, Boolean> weekday : WEEKDAY_MAP.entrySet()) {
             if (!weekday.getValue()) {
                 options.add(String.format("[%s] %s", Color.paint(Color.RED, "ITXITA"), weekday.getKey()));
             } else {
@@ -175,7 +176,7 @@ public class Menus {
 
         switch (selectionNum) {
             case 1, 2, 3, 4, 5, 6, 7 -> {
-                Console.currentDay = Constants.WEEKDAYS
+                Console.currentDay = WEEKDAYS
                     .stream()
                     .filter(d -> d.getName().equals(Day.getDayNameFromNumber(selectionNum)))
                     .findFirst()
@@ -253,7 +254,7 @@ public class Menus {
             default -> {
                 System.out.println();
 
-                Show show = Constants.SCHEDULE.get(Console.currentDay.getName())
+                Show show = SCHEDULE.get(Console.currentDay.getName())
                     .stream()
                     .filter(s -> s.getId().equals(selection))
                     .findFirst()
@@ -267,7 +268,7 @@ public class Menus {
                 }
 
                 int soldTickets = show.getMovie().getTickets();
-                int remaining = Constants.MAX_TICKETS_PER_MOVIE - soldTickets;
+                int remaining = MAX_TICKETS_PER_MOVIE - soldTickets;
 
                 if (remaining <= 0) {
                     System.out.println(String.format("Barkatu, \"%s\" pelikularentzat dagoen sarrerak agortu dira.", Color.paint(Color.PURPLE, show.getMovie().toString())));
@@ -310,7 +311,7 @@ public class Menus {
                 show.getMovie().setTickets(soldTickets + quantity);
 
                 System.out.println();
-                System.out.println(String.format("Erositako sarrera kopurua: %s (%d/%d)", Color.paint(Color.GREEN, quantityStr), show.getMovie().getTickets(), Constants.MAX_TICKETS_PER_MOVIE));
+                System.out.println(String.format("Erositako sarrera kopurua: %s (%d/%d)", Color.paint(Color.GREEN, quantityStr), show.getMovie().getTickets(), MAX_TICKETS_PER_MOVIE));
 
                 Console.waitForEnter();
             }
