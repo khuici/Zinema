@@ -18,9 +18,24 @@ import main.models.enums.Room;
 
 import static main.utils.Constants.*;
 
+/**
+ * Utility class responsible for initializing and presenting application data
+ * such as weekdays, movies, and daily schedules.
+ */
 public class Data {
+
     private static final Logger logger = new Logging(Data.class, LOG_FOLDER_ABS_PATH).getLogger();
 
+    /**
+     * Default constructor (private).
+     */
+    public Data() {}
+
+    /**
+     * Populates the list of {@link main.models.Day} using the provided map.
+     *
+     * @param weekdays map of weekday name to open/closed flag
+     */
     private static void populateDays(Map<String, Boolean> weekdays) {
         for (Map.Entry<String, Boolean> day : weekdays.entrySet()) {
             WEEKDAYS.add(new Day(day.getKey(), day.getValue()));
@@ -31,6 +46,11 @@ public class Data {
         logger.info(String.format("Successfully added %d weekdays.", weekdays.size()));
     }
 
+    /**
+     * Populates the list of {@link main.models.Movie} from the provided map.
+     *
+     * @param movieList map of movie title to {@link Room}
+     */
     private static void populateMovies(Map<String, Room> movieList) {
         int index = 1;
 
@@ -44,14 +64,32 @@ public class Data {
         logger.info(String.format("Successfully added %d movies.", movieList.size()));
     }
 
+    /**
+     * Generates a random integer in range [0, bound).
+     *
+     * @param bound exclusive upper bound
+     * @return random integer
+     */
     private static int generateRandomNumber(int bound) {
         return new Random().nextInt(bound);
     }
 
+    /**
+     * Generates a random integer in range [min, max].
+     *
+     * @param min inclusive lower bound
+     * @param max inclusive upper bound
+     * @return random integer
+     */
     private static int generateRandomNumber(int min, int max) {
         return new Random().nextInt(max - min + 1) + min;
     }
 
+    /**
+     * Generates the daily schedule of {@link Show} for all open weekdays.
+     *
+     * @param schedule target map to populate with day name to list of shows
+     */
     private static void populateSchedule(Map<String, List<Show>> schedule) {
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -111,6 +149,11 @@ public class Data {
         logger.info(String.format("Successfully generated schedules for %d weekdays.", index));
     }
 
+    /**
+     * Prints a formatted list of shows for the given day.
+     *
+     * @param day selected day
+     */
     public static void prettyPrintShows(Day day) {
         List<Show> shows = SCHEDULE.get(day.getName());
 
@@ -129,6 +172,9 @@ public class Data {
         }
     }
 
+    /**
+     * Prints a formatted list of all available movies.
+     */
     public static void prettyPrintMovies() {
         System.out.println(String.format("%s: %s", Color.paint(Color.YELLOW, "Pelikula Kopurua"), MOVIES.size()));
         System.out.println();
@@ -138,6 +184,9 @@ public class Data {
         }
     }
 
+    /**
+     * Prints a formatted list of all rooms.
+     */
     public static void prettyPrintRooms() {
         System.out.println(String.format("%s: %s", Color.paint(Color.YELLOW, "Gela Kopurua"), Room.values().length));
         System.out.println();
@@ -150,11 +199,17 @@ public class Data {
         }
     }
 
+    /**
+     * Prints the cinema opening and closing times.
+     */
     public static void prettyPrintWorkingHours() {
         System.out.println(String.format("Irekiera: %s", Color.paint(Color.YELLOW, OPENING_TIME.toString())));
         System.out.println(String.format("Itxiera: %s", Color.paint(Color.YELLOW, CLOSING_TIME.toString())));
     }
 
+    /**
+     * Initializes core data structures: weekdays, movies, and schedule.
+     */
     public void init() {
         logger.info("Starting data population.");
 
@@ -163,4 +218,5 @@ public class Data {
 
         Data.populateSchedule(SCHEDULE);
     }
+
 }

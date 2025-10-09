@@ -10,9 +10,26 @@ import main.utils.Data;
 
 import static main.utils.Constants.*;
 
+/**
+ * Entry point for the application. Performs basic environment checks and
+ * starts the interactive console.
+ */
 public class Main {
+
     private static final Logger logger = new Logging(Main.class, LOG_FOLDER_ABS_PATH).getLogger();
 
+    /**
+     * Default constructor (private).
+     */
+    private Main() {}
+
+    /**
+     * Performs initial runtime checks for configuration and platform support.
+     *
+     * @throws UnsupportedEncodingException if the default charset is not UTF-8
+     * @throws IllegalArgumentException if min/max show constraints are invalid
+     * @throws UnsupportedOperationException if the OS is not Windows
+     */
     private static void initialChecks() throws UnsupportedEncodingException {
         logger.info("Running initial background checks.");
 
@@ -37,6 +54,12 @@ public class Main {
         }
     }
 
+    /**
+     * Main method.
+     *
+     * @param varargs command line arguments (unused)
+     * @throws UnsupportedEncodingException if runtime encoding validation fails
+     */
     public static void main(String... varargs) throws UnsupportedEncodingException {
         initialChecks();
 
@@ -47,4 +70,5 @@ public class Main {
         new Data().init();
         new Console().run();
     }
+
 }

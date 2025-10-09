@@ -3,3 +3,6 @@ bin/
 
 # Log files.
 logs/
+
+# Javadoc files.
+docs/

@@ -9,22 +9,30 @@ import java.util.logging.Logger;
 import main.models.Day;
 import main.models.Show;
 import main.models.enums.Color;
+import main.models.enums.Menu;
 import main.utils.Data;
 
 import static main.utils.Constants.*;
 
+/**
+ * Menu rendering and flow control for the console UI.
+ */
 public class Menus {
+
+    /** Logger for menu activities. */
     private static final Logger logger = new Logging(Menus.class, LOG_FOLDER_ABS_PATH).getLogger();
 
-    protected static enum MenuState {
-        MAIN_MENU,
-        WEEKDAY_SELECTION_MENU,
-        INDIVIDUAL_DAY_OPTIONS_MENU,
-        TICKET_PURCHASE_MENU,
+    /**
+     * Default constructor (private).
+     */
+    protected Menus() {}
 
-        EXIT
-    }
-
+    /**
+     * Reads a trimmed line from stdin; returns null on empty input.
+     *
+     * @param prompt prompt to display
+     * @return user input or null if empty
+     */
     private static String readSelection(String prompt) {
         System.out.print(prompt);
 
@@ -37,6 +45,12 @@ public class Menus {
         return input;
     }
 
+    /**
+     * Prints a stylized header with a title and underline.
+     *
+     * @param color color to use for the header
+     * @param header header text
+     */
     private static void printHeader(Color color, String header) {
         Console.clear();
 
@@ -50,6 +64,12 @@ public class Menus {
         System.out.println();
     }
 
+    /**
+     * Generates a simple screen with an optional body and enter wait.
+     *
+     * @param printer body renderer (nullable)
+     * @param waitForEnter whether to pause for user input
+     */
     private static void generateMenu(Runnable printer, boolean waitForEnter) {
         logger.info(String.format("Generating custom dynamic menu for \"%s\".", printer.getClass().getSimpleName().toString()));
 
@@ -64,6 +84,15 @@ public class Menus {
         System.out.println();
     }
 
+    /**
+     * Renders a numbered options menu.
+     *
+     * @param returnToMain whether to show a return-to-main option
+     * @param prompt input prompt text
+     * @param header menu header
+     * @param options list of options
+     * @return raw user input
+     */
     private static String generateMenu(boolean returnToMain, String prompt, String header, List<String> options) {
         printHeader(Color.BLUE, header);
 
@@ -86,6 +115,15 @@ public class Menus {
         return readSelection(String.format("%s: ", prompt));
     }
 
+    /**
+     * Renders a screen with a custom body and basic navigation options.
+     *
+     * @param returnToMain whether to show a return-to-main option
+     * @param prompt input prompt text
+     * @param header menu header
+     * @param printer body renderer (nullable)
+     * @return raw user input
+     */
     private static String generateMenu(boolean returnToMain, String prompt, String header, Runnable printer) {
         printHeader(Color.BLUE, header);
 
@@ -105,8 +143,13 @@ public class Menus {
         return readSelection(String.format("%s: ", prompt));
     }
 
-    protected static MenuState handleMainMenu() {
-        MenuState state = MenuState.MAIN_MENU;
+    /**
+     * Displays the main menu and returns the next state.
+     *
+     * @return next menu state
+     */
+    protected static Menu handleMainMenu() {
+        Menu state = Menu.MAIN_MENU;
 
         String prompt = "Zure aukera";
         String header = "Menu Nagusia";
@@ -127,7 +170,7 @@ public class Menus {
         }
 
         switch (selectionNum) {
-            case 1 -> state = MenuState.WEEKDAY_SELECTION_MENU;
+            case 1 -> state = Menu.WEEKDAY_SELECTION_MENU;
 
             case 2 -> {
                 printHeader(Color.BLUE, "Zinemako Pelikulen Informazio Orokorra");
@@ -144,7 +187,7 @@ public class Menus {
                 generateMenu(() -> Data.prettyPrintWorkingHours(), true);
             }
 
-            case 0 -> state = MenuState.EXIT;
+            case 0 -> state = Menu.EXIT;
 
             default -> {}
         }
@@ -152,8 +195,14 @@ public class Menus {
         return state;
     }
 
-    protected static MenuState handleWeekdaySelectionMenu(boolean returnToMain) {
-        MenuState state = MenuState.WEEKDAY_SELECTION_MENU;
+    /**
+     * Displays weekday selection and returns the next state.
+     *
+     * @param returnToMain whether to allow returning to main menu
+     * @return next menu state
+     */
+    protected static Menu handleWeekdaySelectionMenu(boolean returnToMain) {
+        Menu state = Menu.WEEKDAY_SELECTION_MENU;
 
         List<String> options = new ArrayList<>();
 
@@ -182,12 +231,12 @@ public class Menus {
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("Invalid selection: " + selection));
 
-                state = MenuState.INDIVIDUAL_DAY_OPTIONS_MENU;
+                state = Menu.INDIVIDUAL_DAY_OPTIONS_MENU;
             }
 
-            case 8 -> state = MenuState.MAIN_MENU;
+            case 8 -> state = Menu.MAIN_MENU;
 
-            case 0 -> state = MenuState.EXIT;
+            case 0 -> state = Menu.EXIT;
 
             default -> {}
         }
@@ -195,8 +244,15 @@ public class Menus {
         return state;
     }
 
-    protected static MenuState handleIndividualDayOptionsMenu(boolean returnToMain, Day selectedDay) {
-        MenuState state = MenuState.INDIVIDUAL_DAY_OPTIONS_MENU;
+    /**
+     * Displays per-day options for the selected day.
+     *
+     * @param returnToMain whether to allow returning to previous menus
+     * @param selectedDay the chosen day
+     * @return {@link Menu} of the next menu
+     */
+    protected static Menu handleIndividualDayOptionsMenu(boolean returnToMain, Day selectedDay) {
+        Menu state = Menu.INDIVIDUAL_DAY_OPTIONS_MENU;
 
         String prompt = "Aukeratu nahi duzun zeregina";
         String header = String.format("Egun Menua - %s", selectedDay.getName());
@@ -221,11 +277,11 @@ public class Menus {
                 generateMenu(() -> Data.prettyPrintShows(selectedDay), true);
             }
 
-            case 2 -> state = MenuState.TICKET_PURCHASE_MENU;
-            case 3 -> state = MenuState.WEEKDAY_SELECTION_MENU;
-            case 4 -> state = MenuState.MAIN_MENU;
+            case 2 -> state = Menu.TICKET_PURCHASE_MENU;
+            case 3 -> state = Menu.WEEKDAY_SELECTION_MENU;
+            case 4 -> state = Menu.MAIN_MENU;
 
-            case 0 -> state = MenuState.EXIT;
+            case 0 -> state = Menu.EXIT;
 
             default -> {}
         }
@@ -233,8 +289,14 @@ public class Menus {
         return state;
     }
 
-    protected static MenuState handleTicketPurchaseMenu(Day selectedDay) {
-        MenuState state = MenuState.TICKET_PURCHASE_MENU;
+    /**
+     * Displays ticket purchase flow for a day.
+     *
+     * @param selectedDay the chosen day
+     * @return next menu state
+     */
+    protected static Menu handleTicketPurchaseMenu(Day selectedDay) {
+        Menu state = Menu.TICKET_PURCHASE_MENU;
 
         String prompt = "Zure aukera";
         String header = "Sarrera Erosketa Menua";
@@ -246,9 +308,9 @@ public class Menus {
         }
 
         switch (selection) {
-            case "1" -> state = MenuState.MAIN_MENU;
+            case "1" -> state = Menu.MAIN_MENU;
 
-            case "0" -> state = MenuState.EXIT;
+            case "0" -> state = Menu.EXIT;
 
             // TODO: Check for nulls thoroughly.
             default -> {
@@ -264,7 +326,7 @@ public class Menus {
                     System.out.println(Color.paint(Color.RED, "\"Show ID\" okerra. Mesedez saiatu berriro."));
                     Console.waitForEnter();
 
-                    return MenuState.TICKET_PURCHASE_MENU;
+                    return Menu.TICKET_PURCHASE_MENU;
                 }
 
                 int soldTickets = show.getMovie().getTickets();
@@ -274,7 +336,7 @@ public class Menus {
                     System.out.println(String.format("Barkatu, \"%s\" pelikularentzat dagoen sarrerak agortu dira.", Color.paint(Color.PURPLE, show.getMovie().toString())));
                     Console.waitForEnter();
 
-                    return MenuState.TICKET_PURCHASE_MENU;
+                    return Menu.TICKET_PURCHASE_MENU;
                 }
 
                 System.out.println("Hau aukeratu duzu:");
@@ -296,16 +358,16 @@ public class Menus {
                     System.out.println(Color.paint(Color.RED, "Zenbaki egoki bat behar da."));
                     Console.waitForEnter();
 
-                    return MenuState.TICKET_PURCHASE_MENU;
+                    return Menu.TICKET_PURCHASE_MENU;
                 }
 
                 if (quantity < 1) {
-                    return MenuState.TICKET_PURCHASE_MENU;
+                    return Menu.TICKET_PURCHASE_MENU;
                 } else if (quantity > remaining) {
                     System.out.println(Color.paint(Color.RED, "Sarrera kopuru okerra."));
                     Console.waitForEnter();
 
-                    return MenuState.TICKET_PURCHASE_MENU;
+                    return Menu.TICKET_PURCHASE_MENU;
                 }
 
                 show.getMovie().setTickets(soldTickets + quantity);
@@ -319,4 +381,5 @@ public class Menus {
 
         return state;
     }
+
 }

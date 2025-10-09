@@ -43,8 +43,9 @@ osoa.
 - https://www.baeldung.com/java-assert
 - https://www.baeldung.com/java-varargs
 - https://www.baeldung.com/java-generics
-- https://www.baeldung.com/java-enum-values
 - https://www.baeldung.com/java-reflection
+- https://www.baeldung.com/java-enum-values
+- https://www.baeldung.com/java-package-info
 - https://www.baeldung.com/java-suppresswarnings
 - https://www.baeldung.com/java-runnable-callable
 
