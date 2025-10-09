@@ -1,2 +1,5 @@
 # Java binary files.
 bin/
+
+# Log files.
+logs/
