@@ -16,12 +16,14 @@ import main.models.Show;
 import main.models.enums.Color;
 import main.models.enums.Room;
 
+import static main.utils.Constants.*;
+
 public class Data {
-    private static final Logger logger = new Logging(Data.class, Constants.LOG_FOLDER_ABS_PATH).getLogger();
+    private static final Logger logger = new Logging(Data.class, LOG_FOLDER_ABS_PATH).getLogger();
 
     private static void populateDays(Map<String, Boolean> weekdays) {
         for (Map.Entry<String, Boolean> day : weekdays.entrySet()) {
-            Constants.WEEKDAYS.add(new Day(day.getKey(), day.getValue()));
+            WEEKDAYS.add(new Day(day.getKey(), day.getValue()));
 
             logger.info(String.format("Added \"%s\" as \"%s\" to the list of weekdays.", day.getKey(), day.getValue() ? "OPEN" : "CLOSED"));
         }
@@ -34,7 +36,7 @@ public class Data {
 
         for (Map.Entry<String, Room> movie : movieList.entrySet()) {
             String id = String.format("M%02d", ++index);
-            Constants.MOVIES.put(id, new Movie(id, movie.getKey(), movie.getValue()));
+            MOVIES.put(id, new Movie(id, movie.getKey(), movie.getValue()));
 
             logger.info(String.format("Added \"%s\" to the list of movies.", movie.getKey()));
         }
@@ -55,7 +57,7 @@ public class Data {
 
         logger.info("Starting schedule population.");
 
-        for (Map.Entry<String, Boolean> weekday : Constants.WEEKDAY_MAP.entrySet()) {
+        for (Map.Entry<String, Boolean> weekday : WEEKDAY_MAP.entrySet()) {
             if (!weekday.getValue()) {
                 logger.info(String.format("Skipped \"%s\" since it was marked as \"CLOSED\".", weekday.getKey()));
                 continue;
@@ -64,13 +66,13 @@ public class Data {
             List<Show> showList = new ArrayList<>();
 
             // FIXME: Time not updating correctly.
-            LocalTime newTime = Constants.OPENING_TIME.plusMinutes(Constants.INTERVAL_BETWEEN_SHOWS);
+            LocalTime newTime = OPENING_TIME.plusMinutes(INTERVAL_BETWEEN_SHOWS);
             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
-            int maxShows = generateRandomNumber(Constants.MIN_SHOWS_PER_DAY, Constants.MAX_SHOWS_PER_DAY);
+            int maxShows = generateRandomNumber(MIN_SHOWS_PER_DAY, MAX_SHOWS_PER_DAY);
 
             for (int showNum = 1; showNum <= maxShows; ++showNum) {
-                List<Movie> movieList = new ArrayList<>(Constants.MOVIES.values());
+                List<Movie> movieList = new ArrayList<>(MOVIES.values());
                 Movie randomMovie;
 
                 boolean alreadyScheduled;
@@ -98,7 +100,7 @@ public class Data {
                 logger.info(String.format("Added show \"%s\" to the list of shows.", showId));
             }
 
-            Constants.SCHEDULE.put(Day.getDayNameFromNumber(index), showList);
+            SCHEDULE.put(Day.getDayNameFromNumber(index), showList);
 
             logger.info(String.format("Added \"%s\" to the schedule as day %d.", weekday.getKey(), index));
 
@@ -109,7 +111,7 @@ public class Data {
     }
 
     public static void prettyPrintShows(Day day) {
-        List<Show> shows = Constants.SCHEDULE.get(day.getName());
+        List<Show> shows = SCHEDULE.get(day.getName());
 
         if (shows == null || shows.isEmpty()) {
             System.out.println(Color.paint(Color.RED, "Ez daude saiorik egun honetan."));
@@ -122,15 +124,15 @@ public class Data {
 
             int tickets = show.getMovie().getTickets();
 
-            System.out.println(String.format("    [ID: %s] @ %s (Sarrerak: %d/%d) - %s", showId, showTime, tickets, Constants.MAX_TICKETS_PER_MOVIE, show.getMovie()));
+            System.out.println(String.format("    [ID: %s] @ %s (Sarrerak: %d/%d) - %s", showId, showTime, tickets, MAX_TICKETS_PER_MOVIE, show.getMovie()));
         }
     }
 
     public static void prettyPrintMovies() {
-        System.out.println(String.format("%s: %s", Color.paint(Color.YELLOW, "Pelikula Kopurua"), Constants.MOVIES.size()));
+        System.out.println(String.format("%s: %s", Color.paint(Color.YELLOW, "Pelikula Kopurua"), MOVIES.size()));
         System.out.println();
 
-        for (Movie movie : Constants.MOVIES.values()) {
+        for (Movie movie : MOVIES.values()) {
             System.out.println(String.format("    (ID: %s) %s", Color.paint(Color.GREEN, movie.getId()), movie.getTitle()));
         }
     }
@@ -148,16 +150,16 @@ public class Data {
     }
 
     public static void prettyPrintWorkingHours() {
-        System.out.println(String.format("Irekiera: %s", Color.paint(Color.YELLOW, Constants.OPENING_TIME.toString())));
-        System.out.println(String.format("Itxiera: %s", Color.paint(Color.YELLOW, Constants.CLOSING_TIME.toString())));
+        System.out.println(String.format("Irekiera: %s", Color.paint(Color.YELLOW, OPENING_TIME.toString())));
+        System.out.println(String.format("Itxiera: %s", Color.paint(Color.YELLOW, CLOSING_TIME.toString())));
     }
 
     public void init() {
         logger.info("Starting data population.");
 
-        Data.populateDays(Constants.WEEKDAY_MAP);
-        Data.populateMovies(Constants.MOVIE_MAP);
+        Data.populateDays(WEEKDAY_MAP);
+        Data.populateMovies(MOVIE_MAP);
 
-        Data.populateSchedule(Constants.SCHEDULE);
+        Data.populateSchedule(SCHEDULE);
     }
 }

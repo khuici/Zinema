@@ -62,7 +62,7 @@ public class Constants {
     public static final Map<String, List<Show>> SCHEDULE = new LinkedHashMap<>();
 
     public static final int MIN_SHOWS_PER_DAY = 3;
-    public static final int MAX_SHOWS_PER_DAY = Constants.MOVIE_MAP.size();
+    public static final int MAX_SHOWS_PER_DAY = MOVIE_MAP.size();
 
     public static final int MAX_TICKETS_PER_MOVIE = 4;
     public static final int INTERVAL_BETWEEN_SHOWS = 90;
