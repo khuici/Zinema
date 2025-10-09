@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Etorri gure zinemara!">
+    <meta name="author" content="Kerman Huici">
+
+    <title>Zinema Usurbil</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/main1.css">
+
+    <!--
+        Script honek Firefox-eko bug txiki bat konpontzen du.
+        Informazio gehiago: https://stackoverflow.com/questions/21147149
+    -->
+    <script>
+        let _;
+    </script>
+
+    <script src="https://kit.fontawesome.com/e84f5ab43a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="menu__overlay"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../../index1.html">
+                    <img src="../img/logo1.png" alt="Logo">
+                    <span>Zinema Usurbil</span>
+                </a>
+            </div>
+
+            <button class="menu--bars">
+                <i class="fa-solid fa-bars fa-xl"></i>
+            </button>
+
+            <div id="menu">
+                <button class="menu--close">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+
+                <ul>
+                    <li><a href="../../index1.html">Orrialde Nagusia</a></li>
+                    <li><a href="kartelera1.html">Kartelera</a></li>
+                    <li><a href="balorazioak1.html">Balorazioak</a></li>
+                    <li><a href="saskia1.html">Saskia</a></li>
+                    <li><a class="current__page" href="#">Kontaktua</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section__title">Kontaktua</h1>
+
+                <p class="section__lead">
+                    Jar zaitez gurekin harremanetan hurrengo formularioaren
+                    bidez edo deitu <strong>+34 943 000 000</strong> zenbakira.
+                </p>
+
+                <form class="form" action="#" method="post">
+                    <div class="field">
+                        <label for="name">Izena</label>
+                        <input class="input" type="text" id="name" name="name" placeholder="Zure izena">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Posta elektronikoa</label>
+                        <input class="input" type="email" id="email" name="email" placeholder="zure@emaila.eus">
+                    </div>
+
+                    <div class="field">
+                        <label for="subject">Gaia</label>
+                        <input class="input" type="text" id="subject" name="subject" placeholder="Gaia">
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Mezua</label>
+                        <textarea class="textarea" id="message" name="message" placeholder="Zure mezua"></textarea>
+                    </div>
+
+                    <button class="btn btn--primary" type="submit">Bidali</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="links">
+            <div class="info">
+                <h3>Kontaktua</h3>
+
+                <address class="sub">
+                    <a href="mailto:kaixo@zinemausurbil.eus" target="_blank">Posta Elektronikoa</a>
+                    <a href="https://maps.app.goo.gl/5X5D7ky4UjfeNhye8" target="_blank">Aurkitu Gaitzazu</a>
+                </address>
+            </div>
+
+            <div class="info">
+                <h3>Legala</h3>
+
+                <div class="sub">
+                    <a href="#">Cookie Politikak</a>
+                    <a href="#">Baldintzak eta Zehaztapenak</a>
+                    <a href="#">Pribatutasun Politikak</a>
+                </div>
+            </div>
+
+            <div class="info">
+                <h3>Nabigazioa</h3>
+
+                <div class="sub">
+                    <a href="../../index1.html">Orrialde Nagusia</a>
+                    <a href="kartelera1.html">Kartelera</a>
+                    <a href="balorazioak1.html">Balorazioak</a>
+                    <a href="saskia1.html">Saskia</a>
+                    <a href="#">Kontaktua</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="socials">
+            <h2 class="copyright">&copy; 2025 Zinema Usurbil</h2>
+
+            <div class="icons">
+                <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-youtube fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/menu_burger1.js"></script>
+    <script src="../js/menu_arrow1.js"></script>
+</body>
+</html>

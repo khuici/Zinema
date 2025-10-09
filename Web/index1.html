@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Etorri gure zinemara!">
+    <meta name="author" content="Kerman Huici">
+
+    <title>Zinema Usurbil</title>
+
+    <link rel="stylesheet" type="text/css" href="static/css/main1.css">
+
+    <!--
+        Script honek Firefox-eko bug txiki bat konpontzen du.
+        Informazio gehiago: https://stackoverflow.com/questions/21147149
+    -->
+    <script>
+        let _;
+    </script>
+
+    <script src="https://kit.fontawesome.com/e84f5ab43a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="menu__overlay"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="static/img/logo1.png" alt="Logo">
+                    <span>Zinema Usurbil</span>
+                </a>
+            </div>
+
+            <button class="menu--bars">
+                <i class="fa-solid fa-bars fa-xl"></i>
+            </button>
+
+            <div id="menu">
+                <button class="menu--close">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+
+                <ul>
+                    <li><a class="current__page" href="#">Orrialde Nagusia</a></li>
+                    <li><a href="static/pages/kartelera1.html">Kartelera</a></li>
+                    <li><a href="static/pages/balorazioak1.html">Balorazioak</a></li>
+                    <li><a href="static/pages/saskia1.html">Saskia</a></li>
+                    <li><a href="static/pages/kontaktua1.html">Kontaktua</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('static/img/kimetsu_4k.jpg');">
+            <div class="container">
+                <h1 class="hero__title">Ongi etorri Zinema Usurbil-era!</h1>
+                <p class="hero__subtitle">Esperientzia paregabea zinema areto modernoenean. Aukeratu zure pelikula gogokoena eta gozatu!</p>
+
+                <a class="btn btn--primary" href="static/pages/kartelera1.html">Ikusi Kartelera</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Gainerako Pelikulak</h2>
+
+                <div class="cards">
+                    <article class="card card--featured">
+                        <img class="card__media" src="static/img/movies/avatar1.jpg" alt="Avatar: El Sentido del Agua">
+
+                        <div class="card__overlay">
+                            <h2 class="card__title">Avatar: El Sentido del Agua</h2>
+
+                            <div class="chips">
+                                <span class="chip">Sci-Fi</span>
+                                <span class="chip">Acción</span>
+                                <span class="chip">3h 12m</span>
+                            </div>
+
+                            <a class="btn btn--primary" href="static/pages/saskia1.html">Erosi Sarrerak</a>
+                        </div>
+                    </article>
+
+                    <article class="card card--featured">
+                        <img class="card__media" src="static/img/movies/tron1.jpg" alt="TRON: Ares">
+
+                        <div class="card__overlay">
+                            <h2 class="card__title">TRON: Ares</h2>
+
+                            <div class="chips">
+                                <span class="chip">Sci-Fi</span>
+                                <span class="chip">Acción</span>
+                                <span class="chip">1h 59m</span>
+                            </div>
+
+                            <a class="btn btn--primary" href="static/pages/saskia1.html">Erosi Sarrerak</a>
+                        </div>
+                    </article>
+
+                    <article class="card card--featured">
+                        <img class="card__media" src="static/img/movies/sketch1.jpg" alt="Sketch. Cuidado con lo que Dibujas">
+
+                        <div class="card__overlay">
+                            <h2 class="card__title">Sketch. Cuidado con lo que Dibujas</h2>
+
+                            <div class="chips">
+                                <span class="chip">Aventura</span>
+                                <span class="chip">Comedia</span>
+                                <span class="chip">1h 32m</span>
+                            </div>
+
+                            <a class="btn btn--primary" href="static/pages/saskia1.html">Erosi Sarrerak</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--muted">
+            <div class="container notice">
+                <h2 class="section__title">Zinema Usurbil Ezagutu</h2>
+
+                <p class="section__lead">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique
+                    consectetur est, sed molestie dolor molestie ac. Cras nec odio elit. Cras
+                    porttitor, orci et egestas gravida, leo eros tempus ligula, id posuere metus
+                    nisl in orci. Nunc venenatis nec neque in imperdiet. Maecenas aliquam ipsum
+                    hendrerit, interdum nisi ac, consectetur tortor. Aenean tortor diam, convallis
+                    at venenatis eget, aliquam eget elit. Duis sit amet iaculis leo. Nam tempor
+                    faucibus metus in pharetra.
+                </p>
+
+                <a class="btn btn--primary" href="static/pages/informazioa1.html">Gehiago Jakin</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="links">
+            <div class="info">
+                <h3>Kontaktua</h3>
+
+                <address class="sub">
+                    <a href="mailto:kaixo@zinemausurbil.eus" target="_blank">Posta Elektronikoa</a>
+                    <a href="https://maps.app.goo.gl/5X5D7ky4UjfeNhye8" target="_blank">Aurkitu Gaitzazu</a>
+                </address>
+            </div>
+
+            <div class="info">
+                <h3>Legala</h3>
+
+                <div class="sub">
+                    <a href="#">Cookie Politikak</a>
+                    <a href="#">Baldintzak eta Zehaztapenak</a>
+                    <a href="#">Pribatutasun Politikak</a>
+                </div>
+            </div>
+
+            <div class="info">
+                <h3>Nabigazioa</h3>
+
+                <div class="sub">
+                    <a href="#">Orrialde Nagusia</a>
+                    <a href="static/pages/kartelera1.html">Kartelera</a>
+                    <a href="static/pages/balorazioak1.html">Balorazioak</a>
+                    <a href="static/pages/saskia1.html">Saskia</a>
+                    <a href="static/pages/kontaktua1.html">Kontaktua</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="socials">
+            <h2 class="copyright">&copy; 2025 Zinema Usurbil</h2>
+
+            <div class="icons">
+                <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-youtube fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/menu_burger1.js"></script>
+    <script src="static/js/menu_arrow1.js"></script>
+</body>
+</html>

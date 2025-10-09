@@ -1,0 +1,122 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #0a0a0a;
+    --background-elevate: #111111;
+    --surface: #0d0d0d;
+    --text: #f2f2f2;
+    --muted: #b3b3b3;
+    --main: #1874d1;
+    --main-2: #1762ad;
+    --danger: #ff5d5d;
+    --border: rgba(255, 255, 255, .10);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    --radius: 8px;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+}
+
+header {
+    padding: .75em 1em;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, 0));
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 1em;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .025), rgba(255, 255, 255, 0));
+    border-top: 1px solid var(--border);
+}
+
+footer h3 {
+    padding-bottom: .25em;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+    color: var(--muted);
+}
+
+footer .sub {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+footer .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+footer .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5em;
+    padding-top: 1em;
+    border-top: 1px dashed rgba(255, 255, 255, .15);
+}
+
+footer .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+button {
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+
+address {
+    font-style: normal;
+}
+
+i {
+    color: var(--text);
+}
+
+a {
+    transition: color .15s ease-in-out, opacity .25s ease, transform .25s ease;
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--main);
+}
