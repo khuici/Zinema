@@ -312,7 +312,6 @@ public class Menus {
 
             case "0" -> state = Menu.EXIT;
 
-            // TODO: Check for nulls thoroughly.
             default -> {
                 System.out.println();
 
