@@ -8,7 +8,7 @@ import main.models.enums.Color;
 import main.models.enums.Menu;
 
 /**
- * Console runner and helpers for screen clear, exit, and input waits.
+ * Console runner and helpers.
  */
 public class Console extends Menus {
 

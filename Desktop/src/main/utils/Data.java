@@ -19,8 +19,7 @@ import main.models.enums.Room;
 import static main.utils.Constants.*;
 
 /**
- * Utility class responsible for initializing and presenting application data
- * such as weekdays, movies, and daily schedules.
+ * Utility class responsible for initializing and presenting application data.
  */
 public class Data {
 
@@ -208,7 +207,7 @@ public class Data {
     }
 
     /**
-     * Initializes core data structures: weekdays, movies, and schedule.
+     * Initializes core data structures.
      */
     public void init() {
         logger.info("Starting data population.");
