@@ -1,0 +1,279 @@
+
+header{
+background: linear-gradient(90deg, #2E026D,#A21CAF);
+color: white;
+padding: 15px 40px;
+display: flex;
+align-items: center;
+}
+header .logo {
+  
+}
+
+nav {
+  margin-left: auto;   
+  margin-right: auto;  
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0,0,3);
+  font-weight: 500;
+ 
+}
+.baloncesto{
+  background: #FFD60A;
+  padding: 8px 16px;  
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  animation: glowing 1300ms infinite;
+}
+@keyframes glowing {
+  0%   { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+  50%  { background-color: #FFD60A; box-shadow: 0 0 15px #FFD60A; }
+  100% { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+}
+.hamburger{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger span{
+  display: block;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+#cartelera {
+    padding: 30px;
+    background-color: #f5f5f5;
+}
+
+.pelicula {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.pelicula img {
+    width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    margin-right: 25px;
+    object-fit: cover;
+}
+
+.descripcion {
+    flex: 1;
+    position: relative;
+}
+
+.descripcion h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.descripcion p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.comprar-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comprar {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.comprar:hover {
+    background-color: #1e7e34;
+}
+
+.botones-horarios {
+    margin-top: 12px;
+}
+
+.botones-horarios button {
+    padding: 8px 12px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+}
+
+.botones-horarios button:hover {
+    background-color: #0056b3;
+}
+
+#top-peliculas {
+    padding: 30px;
+    background-color: #f0f0f0;
+}
+
+.cartelera-top {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cartelera-top img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+   
+}
+
+.cartelera-top img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+
+.informacion {
+  background: #fff;
+  border-radius: 16px;                   
+  padding: 40px 30px;                   
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #222;
+  font-size: 18px;                    
+  min-height: 250px;                  
+}
+
+.informacion:hover {
+  transform: scale(1.05);                
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #111;
+    color: #fff;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.movie-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card, .promo-card {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e50914;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b0060f;
+}
+footer {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+}
+
+.zero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+
+.footer-center {
+  flex: 2;
+  text-align: center;
+}
+
+.footer-center a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.95rem;
+}
+
+.footer-center a:hover {
+  color: #00bfff;
+}
+
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-right .icon img {
+  width: 35px;
+  transition: transform 0.2s ease;
+}
+
+.footer-right .icon img:hover {
+  transform: scale(1.1);
+}

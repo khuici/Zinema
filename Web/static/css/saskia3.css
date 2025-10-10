@@ -1,0 +1,210 @@
+
+header{
+background: linear-gradient(90deg, #2E026D,#A21CAF);
+color: white;
+padding: 15px 40px;
+display: flex;
+align-items: center;
+}
+header .logo {
+  
+}
+
+nav {
+  margin-left: auto;   
+  margin-right: auto;  
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0,0,3);
+  font-weight: 500;
+ 
+}
+.saskia{
+  background: #FFD60A;
+  padding: 8px 16px;  
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  animation: glowing 1300ms infinite;
+}
+@keyframes glowing {
+  0%   { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+  50%  { background-color: #FFD60A; box-shadow: 0 0 15px #FFD60A; }
+  100% { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+}
+.hamburger{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger span{
+  display: block;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+.pelicula{
+text-align: center;
+}
+.texto{
+  position: absolute;      
+  top: 40%;             
+  left: 25%;              
+  color: white;            
+  font-size: 38px;        
+  font-weight: bold;       
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+  text-align: left;
+}
+footer {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+}
+
+.zero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-center {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-center a:hover {
+    color: #00bfff;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-right .icon img {
+    width: 35px;
+}
+
+
+
+.saski{
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    height: 500px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: arial;
+}
+.saski h2{
+    text-align: center;
+}
+button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px ;
+}
+.saskia-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.saskia-container h2 {
+  text-align: center;
+  color: #5f259f;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.saskia-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+input, select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus {
+  border-color: #5f259f;
+  outline: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.buy-btn {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(90, 50, 200, 0.4);
+}
+
+.payment label {
+  margin-right: 0.4rem;
+}

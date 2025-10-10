@@ -1,0 +1,280 @@
+header{
+background: linear-gradient(90deg, #2E026D,#A21CAF);
+color: white;
+padding: 15px 40px;
+display: flex;
+align-items: center;
+}
+header .logo {
+  
+}
+
+nav {
+  margin-left: auto;   
+  margin-right: auto;  
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0,0,3);
+  font-weight: 500;
+ 
+}
+.baloncesto{
+  background: #FFD60A;
+  padding: 8px 16px;  
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  animation: glowing 1300ms infinite;
+}
+
+.hamburger{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger span{
+  display: block;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+.pelicula{
+text-align: center;
+}
+.texto{
+  position: absolute;      
+  top: 40%;             
+  left: 25%;              
+  color: white;            
+  font-size: 38px;        
+  font-weight: bold;       
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+  text-align: left;
+}
+
+.zero {
+  display: flex;
+  gap: 10px;     
+  justify-content: right;
+}
+
+.valoration{
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    height: 500px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: arial;
+}
+.valoration h2{
+    color: #d32f2f;
+    text-align: center;
+}
+button{
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px ;
+}
+button:hover{
+  background-color: #b71c1c;
+}
+.opiniones {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.opiniones h2 {
+  text-align: center;
+  color: #d32f2f;
+  margin-bottom: 20px;
+}
+
+.valoracion {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.valoracion:last-child {
+  border-bottom: none;
+}
+
+.valoracion h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.valoracion .pelicula {
+  font-weight: bold;
+  color: #555;
+  margin: 3px 0;
+}
+
+.valoracion .estrellas {
+  color: #FFD700; 
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.valoracion .comentario {
+  color: #444;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.valoracion .fecha {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+
+.valoration {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.valoration h2 {
+  color: #d32f2f;
+  text-align: center;
+}
+
+.valoration p {
+  text-align: center;
+  color: #444;
+}
+
+.valoration input,
+.valoration textarea,
+.valoration select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.valoration textarea {
+  resize: none;
+}
+
+button {
+  display: block;
+  margin: 10px auto 0;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #b71c1c;
+}
+
+.saskia {
+    background: #FFD60A;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    animation: glowing 1300ms infinite;
+}
+
+@keyframes glowing {
+    0%   { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+    50%  { background-color: #FFD60A; box-shadow: 0 0 15px #FFD60A; }
+    100% { background-color: #FFD60A; box-shadow: 0 0 3px #FFD60A; }
+}
+footer {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+}
+
+.zero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-left {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-center {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-center a:hover {
+    color: #00bfff;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-right .icon img {
+    width: 35px;
+}
+
+@media (max-width: 768px) {
+    .zero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+}
