@@ -8,10 +8,11 @@
     right: -100%;
     width: 320px;
     height: 100vh;
-    padding: 1em;
+    padding: 1.5em 2em;
     transition: right .25s cubic-bezier(.25, .60, .35, 1), opacity .25s ease;
     background: linear-gradient(180deg, var(--background-elevate), var(--surface));
     border-left: 1px solid var(--border);
+    gap: 1em;
 }
 
 #menu.active {
@@ -54,4 +55,8 @@
 #menu__overlay.active {
     visibility: visible;
     opacity: 1;
+}
+
+.menu--close {
+    align-self: flex-end;
 }
